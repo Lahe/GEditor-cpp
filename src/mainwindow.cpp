@@ -4,11 +4,13 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QProcess>
+#include <QFontDatabase>
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
         ui(new Ui::MainWindow) {
     ui->setupUi(this);
+    QFontDatabase::addApplicationFont("resources/ProximaNova_rg.ttf");
 }
 
 MainWindow::~MainWindow() {

@@ -106,6 +106,8 @@ QComboBox QAbstractItemView {
 QTabWidget::pane {
 border: 1px solid #325154; 
 }
+
+font: 10pt &quot;Proxima Nova&quot;;
 </string>
   </property>
   <property name="toolButtonStyle">
@@ -234,6 +236,7 @@ border: 1px solid #325154;
      </property>
      <property name="font">
       <font>
+       <family>Proxima Nova Rg</family>
        <pointsize>-1</pointsize>
       </font>
      </property>
@@ -452,6 +455,8 @@ border: 1px solid #325154;
         <font>
          <family>Proxima Nova Rg</family>
          <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -537,6 +542,7 @@ border: 1px solid #325154;
      </property>
      <property name="font">
       <font>
+       <family>Proxima Nova Rg</family>
        <pointsize>-1</pointsize>
       </font>
      </property>
@@ -684,6 +690,7 @@ border: 1px solid #325154;
        </property>
        <property name="font">
         <font>
+         <family>Proxima Nova Rg</family>
          <pointsize>-1</pointsize>
         </font>
        </property>
@@ -1005,6 +1012,7 @@ border: 1px solid #325154;
        </property>
        <property name="font">
         <font>
+         <family>Proxima Nova Rg</family>
          <pointsize>-1</pointsize>
         </font>
        </property>
@@ -1404,6 +1412,7 @@ border: 1px solid #325154;
        </property>
        <property name="font">
         <font>
+         <family>Proxima Nova Rg</family>
          <pointsize>-1</pointsize>
         </font>
        </property>
@@ -1672,6 +1681,11 @@ border: 1px solid #325154;
       </widget>
      </widget>
      <widget class="QWidget" name="scaleTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+       </font>
+      </property>
       <attribute name="title">
        <string>Scale</string>
       </attribute>
@@ -1683,6 +1697,12 @@ border: 1px solid #325154;
          <width>47</width>
          <height>13</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>Width: </string>
@@ -1697,6 +1717,12 @@ border: 1px solid #325154;
          <height>13</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Height: </string>
        </property>
@@ -1709,6 +1735,12 @@ border: 1px solid #325154;
          <width>47</width>
          <height>13</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>px</string>
@@ -1723,6 +1755,12 @@ border: 1px solid #325154;
          <height>13</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>px</string>
        </property>
@@ -1730,11 +1768,17 @@ border: 1px solid #325154;
       <widget class="QSpinBox" name="widthVar">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>66</x>
          <y>10</y>
          <width>42</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="buttonSymbols">
         <enum>QAbstractSpinBox::NoButtons</enum>
@@ -1749,11 +1793,17 @@ border: 1px solid #325154;
       <widget class="QSpinBox" name="heightVar">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>66</x>
          <y>40</y>
          <width>42</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="buttonSymbols">
         <enum>QAbstractSpinBox::NoButtons</enum>
@@ -1770,9 +1820,15 @@ border: 1px solid #325154;
         <rect>
          <x>170</x>
          <y>44</y>
-         <width>141</width>
+         <width>171</width>
          <height>16</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>Max dimensions:  1920x1080</string>
@@ -1787,12 +1843,23 @@ border: 1px solid #325154;
          <height>16</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Min dimensions: 100x100</string>
        </property>
       </widget>
      </widget>
      <widget class="QWidget" name="presetFuncs">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+       </font>
+      </property>
       <attribute name="title">
        <string>Preset Functions</string>
       </attribute>
