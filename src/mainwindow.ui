@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>461</width>
+    <height>543</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>461</width>
+    <height>543</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>461</width>
+    <height>543</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Proxima Nova Rg</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>GEditor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources/logg.qrc">
+    <normaloff>:/ico2.png</normaloff>:/ico2.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+color:#4fe3c3;
+border:1px solid #325154;
+}
+QLabel{
+color:#b9c8c8;
+}
+QGroupBox{
+color:#4fe3c3;
+border: 1px solid #325154;
+}
+QLineEdit{
+color:#4fe3c3;
+border:1px solid #325154;
+}
+QMessageBox {
+background-color:#262d38;
+color:#6c7585;
+}
+QProgressBar{
+color:#4fe3c3;
+border:1px solid #4fe3c3;
+}
+QProgressBar::chunk {
+background-color:#4fe3c3;
+}
+
+QWidget{
+background-color:#12161f;
+}
+
+QPushButton:hover{
+background-color:#4fe3c3;
+color:#262d38;
+border:1px solid #262d38;
+}
+
+QSpinBox {
+color:#4fe3c3;
+border:1px solid #325154;
+}
+QComboBox {
+color:#4fe3c3;
+border:1px solid #325154;
+font-size:10px;
+}
+
+QTabBar::tab {
+	border: 1px solid #325154;
+	color:#b9c8c8;
+    padding: 4px;
+}
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: #4fe3c3;
+	color: #262d38;
+}
+
+QSlider::handle {
+background-color:#325154;
+border:0px solid #262d38;
+}
+
+QComboBox QAbstractItemView {
+	color: #4fe3c3;
+	min-width: 150px;
+}
+
+QTabWidget::pane {
+border: 1px solid #325154; 
+}
+</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <widget class="QWidget" name="mainWidget">
+   <property name="minimumSize">
+    <size>
+     <width>461</width>
+     <height>543</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>461</width>
+     <height>543</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Proxima Nova Rg</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <widget class="QGroupBox" name="inputBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>441</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Proxima Nova Rg</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="importBrowse">
+     <property name="geometry">
+      <rect>
+       <x>355</x>
+       <y>10</y>
+       <width>75</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Browse..</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="importField">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>331</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:1px solid #325154; color:#b9c8c8;</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Import a file:</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="codecSettings">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>240</y>
+      <width>441</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Proxima Nova Rg</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Codec settings</string>
+    </property>
+    <widget class="QComboBox" name="aCodecDrop">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>20</y>
+       <width>69</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <item>
+      <property name="text">
+       <string>default</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>AAC</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Vorbis</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MP3</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QTabWidget" name="aCodecTabs">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>50</y>
+       <width>161</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="AACTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <attribute name="title">
+       <string>AAC</string>
+      </attribute>
+      <widget class="QLabel" name="AACBitrateLabel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>15</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Bitrate:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="AACBitrateVar">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>32</number>
+       </property>
+       <property name="maximum">
+        <number>512</number>
+       </property>
+       <property name="singleStep">
+        <number>32</number>
+       </property>
+       <property name="value">
+        <number>128</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="AACBitrateUnit">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>15</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>kbps</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="vorbisTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <attribute name="title">
+       <string>Vorbis</string>
+      </attribute>
+      <widget class="QLabel" name="vorbisLabel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>13</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Quality:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="vorbisValue">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>10</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="MP3Tab_2">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <attribute name="title">
+       <string>MP3</string>
+      </attribute>
+      <widget class="QLabel" name="mp3Label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>15</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Quality:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="mp3Text">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Lower = higher quality</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="mp3Value">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>9</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="aCodecLabel">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>23</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Audio codec:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="vCodecDrop">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>20</y>
+       <width>161</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <item>
+      <property name="text">
+       <string>default</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>x264 (mp4) (optimal)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>VP8 (webm)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Xvid (avi)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>x265 (mp4)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>H.264 NVENC (mp4)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>HEVC NVENC (mp4)</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="vCodecLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>23</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Video Codec: </string>
+     </property>
+    </widget>
+    <widget class="QTabWidget" name="vCodecTabs">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>251</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="x264Tab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <attribute name="title">
+       <string>x264/x265</string>
+      </attribute>
+      <widget class="QLabel" name="x264QLabel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>CRF: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="x264PLabel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>44</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Preset:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="x264Preset">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>40</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="currentText">
+        <string>medium (Default)</string>
+       </property>
+       <property name="currentIndex">
+        <number>5</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>ultrafast</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>superfast</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>veryfast</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>faster</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fast</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>medium (Default)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>slow</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>slower</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>veryslow</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSlider" name="x264Var">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="maximum">
+        <number>51</number>
+       </property>
+       <property name="sliderPosition">
+        <number>23</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="x264VarLabel">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>8</y>
+         <width>21</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>23</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="VP8Tab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <attribute name="title">
+       <string>VP8</string>
+      </attribute>
+      <widget class="QLabel" name="VP8Label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>14</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Bitrate: </string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="VP8Var">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>100</number>
+       </property>
+       <property name="maximum">
+        <number>20000</number>
+       </property>
+       <property name="singleStep">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>3000</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="VP8Unit">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>14</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>kbps</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="XvidTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <attribute name="title">
+       <string>Xvid</string>
+      </attribute>
+      <widget class="QLabel" name="XvidLabel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Quality scale:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="XvidText">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>1 = highest quality</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="XvidVar">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>12</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>31</number>
+       </property>
+       <property name="value">
+        <number>10</number>
+       </property>
+       <property name="sliderPosition">
+        <number>10</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="XvidVarLabel">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>10</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="NVENCTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <attribute name="title">
+       <string>NVENC</string>
+      </attribute>
+      <widget class="QComboBox" name="NVENCPresets">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>161</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="currentText">
+        <string>default (Default)</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>default (Default)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>slow (HQ 2 passes)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>medium (HQ 1 pass)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fast (Performance 1 pass)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>hp (High performance)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>hq (High quality)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>bd (Bluray disk)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ll (Low latency)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>llhq (Low latency hq)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>llhp (Low latency hp)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>lossless (Lossless)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>loslesshp (Lossless hp)</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="NVENCPLabel">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>15</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Preset: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="NVENCBLabel">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>44</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Bitrate: </string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="NVENCVar">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>40</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>100</number>
+       </property>
+       <property name="maximum">
+        <number>50000</number>
+       </property>
+       <property name="singleStep">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>3000</number>
+       </property>
+       <property name="displayIntegerBase">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="NVENCUnit">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>44</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>kbps</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="changeCodecBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>159</y>
+       <width>115</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Change Codec</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="customCommands">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>440</y>
+      <width>441</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Proxima Nova Rg</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string>Custom Commands</string>
+    </property>
+    <widget class="QTextEdit" name="customText">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>341</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:1px solid #325154; color:#b9c8c8;</string>
+     </property>
+     <property name="placeholderText">
+      <string>Warning: For advanced users. Enter a custom ffmpeg command to execute.</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="customApply">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>75</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Execute</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="functionBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>441</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Proxima Nova Rg</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Functions</string>
+    </property>
+    <widget class="QTabWidget" name="functionTabs">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>421</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="lutTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+       </font>
+      </property>
+      <attribute name="title">
+       <string>Color Correction</string>
+      </attribute>
+      <widget class="QPushButton" name="lutBrowse">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>20</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Browse..</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="lutPath">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>301</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border:1px solid #325154; color:#b9c8c8;</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="placeholderText">
+        <string>Choose LUT:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="speedTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <attribute name="title">
+       <string>Speed</string>
+      </attribute>
+      <widget class="QLabel" name="speedText">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>27</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Speed:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="speedPercent">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>25</y>
+         <width>16</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:13px</string>
+       </property>
+       <property name="text">
+        <string>%</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="speedVar">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>20</y>
+         <width>42</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>500</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="extractTab">
+      <property name="font">
+       <font>
+        <family>Proxima Nova Rg</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <attribute name="title">
+       <string>Extract Subclip</string>
+      </attribute>
+      <widget class="QLabel" name="extractStartMin">
+       <property name="geometry">
+        <rect>
+         <x>125</x>
+         <y>15</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>min</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="extractEndSec">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>45</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>sec</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="extractStartMinVar">
+       <property name="geometry">
+        <rect>
+         <x>75</x>
+         <y>10</y>
+         <width>42</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>16777215</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="extractStartSec">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>15</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>sec</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="extractEndMinVar">
+       <property name="geometry">
+        <rect>
+         <x>75</x>
+         <y>40</y>
+         <width>42</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>16777215</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="extractEndSecVar">
+       <property name="geometry">
+        <rect>
+         <x>158</x>
+         <y>40</y>
+         <width>42</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>59</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="extractEndMin">
+       <property name="geometry">
+        <rect>
+         <x>125</x>
+         <y>45</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>min</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="extractEndText">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>45</y>
+         <width>61</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>End time:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="extractStartText">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>15</y>
+         <width>61</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Start Time:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="extractStartSecVar">
+       <property name="geometry">
+        <rect>
+         <x>158</x>
+         <y>10</y>
+         <width>42</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>59</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="scaleTab">
+      <attribute name="title">
+       <string>Scale</string>
+      </attribute>
+      <widget class="QLabel" name="widthLabel">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>14</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Width: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="heightLabel">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>44</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Height: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="widthPx">
+       <property name="geometry">
+        <rect>
+         <x>115</x>
+         <y>14</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>px</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="heightPx">
+       <property name="geometry">
+        <rect>
+         <x>115</x>
+         <y>44</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>px</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="widthVar">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="minimum">
+        <number>100</number>
+       </property>
+       <property name="maximum">
+        <number>1920</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="heightVar">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>40</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="minimum">
+        <number>100</number>
+       </property>
+       <property name="maximum">
+        <number>1080</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="maxLabel">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>44</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Max dimensions:  1920x1080</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="minLabel">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>14</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Min dimensions: 100x100</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="presetFuncs">
+      <attribute name="title">
+       <string>Preset Functions</string>
+      </attribute>
+      <widget class="QPushButton" name="stabButton">
+       <property name="geometry">
+        <rect>
+         <x>285</x>
+         <y>10</y>
+         <width>120</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Stabilize Video</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="gifButton">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>120</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Save as GIF</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="mp3Button">
+       <property name="geometry">
+        <rect>
+         <x>12</x>
+         <y>10</y>
+         <width>120</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Proxima Nova Rg</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Convert to MP3</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="actionPreview">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>130</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Preview</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="actionApply">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Apply</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="confirmationLabel">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>133</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="actionExecute">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>130</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Export</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources/logg.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>XvidVar</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>XvidVarLabel</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>335</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>x264Var</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>x264VarLabel</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>148</x>
+     <y>332</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>75</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>importBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>36</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>405</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lutBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importLut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>371</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionApply</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>applyFunction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>49</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPreview</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>previewOutput()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>137</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mp3Button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>convertToMp3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gifButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveAsGif()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>222</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>118</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stabButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>stabilizeVideo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>348</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>268</x>
+     <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>customApply</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>executeCustom()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>469</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>385</x>
+     <y>474</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>changeCodecBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeCodec()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>411</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>178</x>
+     <y>436</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionExecute</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveToFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>203</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>232</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>functionTabs</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tabSelected()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>73</x>
+     <y>105</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>145</x>
+     <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>importFile()</slot>
+  <slot>importLut()</slot>
+  <slot>applyFunction()</slot>
+  <slot>previewOutput()</slot>
+  <slot>convertToMp3()</slot>
+  <slot>saveAsGif()</slot>
+  <slot>stabilizeVideo()</slot>
+  <slot>saveToFile()</slot>
+  <slot>uploadToGfycat()</slot>
+  <slot>uploadToStreamable()</slot>
+  <slot>executeCustom()</slot>
+  <slot>resetEffects()</slot>
+  <slot>changeCodec()</slot>
+  <slot>tabSelected()</slot>
+ </slots>
+</ui>

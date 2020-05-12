@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file>ico2.png</file>
+    <file>ProximaNova.ttf</file>
+  </qresource>
+</RCC>
