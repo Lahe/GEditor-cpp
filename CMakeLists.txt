@@ -13,8 +13,8 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 set(project_ui src/mainwindow.ui)
-set(project_headers include/mainwindow.h include/ProcessHandler.h)
-set(project_sources src/main.cpp src/mainwindow.cpp src/ProcessHandler.cpp)
+set(project_headers include/mainwindow.h include/processhandler.h)
+set(project_sources src/main.cpp src/mainwindow.cpp src/processhandler.cpp)
 set(project_resources resources/logg.qrc resources/geditor.rc resources/ProximaNova_rg.ttf)
 
 add_executable(${PROJECT_NAME} ${project_sources} ${project_headers} ${project_ui} ${project_resources})

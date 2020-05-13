@@ -5,7 +5,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QFontDatabase>
-#include "include/ProcessHandler.h"
+#include "include/processhandler.h"
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
