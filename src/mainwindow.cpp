@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QFontDatabase>
+#include "include/ProcessHandler.h"
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -18,32 +19,19 @@ MainWindow::~MainWindow() {
 }
 
 static void ffmpegSubprocess(QStringList &paramList) {
-    qDebug() << "Params: " << paramList;
-    QProcess ffmpeg;
-    QString ffmpegPath = "bin/ffmpeg.exe";
-    ffmpeg.start(ffmpegPath, paramList);
-    if (!ffmpeg.waitForFinished())
-        qDebug() << "Conversion failed: " << ffmpeg.errorString();
-    else {
-        qDebug() << "Conversion successful: " << ffmpeg.readAll();
-        qDebug() << "   _____ ____  __  __ _____  _      ______ _______ ______ _____  \n"
-                    "  / ____/ __ \\|  \\/  |  __ \\| |    |  ____|__   __|  ____|  __ \\ \n"
-                    " | |   | |  | | \\  / | |__) | |    | |__     | |  | |__  | |  | |\n"
-                    " | |   | |  | | |\\/| |  ___/| |    |  __|    | |  |  __| | |  | |\n"
-                    " | |___| |__| | |  | | |    | |____| |____   | |  | |____| |__| |\n"
-                    "  \\_____\\____/|_|  |_|_|    |______|______|  |_|  |______|_____/ ";
-    }
+    ProcessHandler handler;
+    handler.StartProcess("bin/ffmpeg.exe", paramList);
+    qDebug() << "   _____ ____  __  __ _____  _      ______ _______ ______ _____  \n"
+                "  / ____/ __ \\|  \\/  |  __ \\| |    |  ____|__   __|  ____|  __ \\ \n"
+                " | |   | |  | | \\  / | |__) | |    | |__     | |  | |__  | |  | |\n"
+                " | |   | |  | | |\\/| |  ___/| |    |  __|    | |  |  __| | |  | |\n"
+                " | |___| |__| | |  | | |    | |____| |____   | |  | |____| |__| |\n"
+                "  \\_____\\____/|_|  |_|_|    |______|______|  |_|  |______|_____/ ";
 }
 
 static void ffplaySubprocess(QStringList &paramList) {
-    qDebug() << "Params: " << paramList;
-    QProcess ffplay;
-    QString ffplayPath = "bin/ffplay.exe";
-    ffplay.start(ffplayPath, paramList);
-    if (!ffplay.waitForFinished())
-        qDebug() << "Preview failed: " << ffplay.errorString();
-    else
-        qDebug() << "Previewing file...";
+    ProcessHandler handler;
+    handler.StartProcess("bin/ffplay.exe", paramList);
 }
 
 void MainWindow::appendLutParams(QStringList &params) {
