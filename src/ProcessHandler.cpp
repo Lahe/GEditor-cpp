@@ -1,4 +1,4 @@
-#include "include/ProcessHandler.h"
+#include "include/processhandler.h"
 
 void ProcessHandler::StartProcess(QString process, QStringList& params) {
     qDebug() << process;
