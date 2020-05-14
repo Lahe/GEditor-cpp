@@ -58,73 +58,78 @@ void MainWindow::appendScaleParams(QStringList &params) {
 }
 
 void MainWindow::changeCodec() {
-    QString vCodecText = ui->vCodecDrop->currentText();
-    QString aCodecText = ui->aCodecDrop->currentText();
-    vCodec.clear();
-    aCodec.clear();
-    if (vCodecText == "default") {
-        extension = QFileInfo(inPath).suffix();
-        vCodec << "-c:v" << "copy";
-    } else if (vCodecText == "x264 (mp4) (optimal)" or vCodecText == "x265 (mp4)") {
-        QString codec;
-        if (vCodecText.contains("x264")) {
-            codec = "libx264";
-        } else if (vCodecText.contains("x265")) {
-            codec = "libx265";
+    if (ui->importField->toPlainText().isEmpty()) {
+        QMessageBox::warning(this, "Error", "Import not specified!");
+    } else {
+        QString vCodecText = ui->vCodecDrop->currentText();
+        QString aCodecText = ui->aCodecDrop->currentText();
+        vCodec.clear();
+        aCodec.clear();
+        if (vCodecText == "default") {
+            extension = QFileInfo(inPath).suffix();
+            vCodec << "-c:v" << "copy";
+        } else if (vCodecText == "x264 (mp4) (optimal)" or vCodecText == "x265 (mp4)") {
+            QString codec;
+            if (vCodecText.contains("x264")) {
+                codec = "libx264";
+            } else if (vCodecText.contains("x265")) {
+                codec = "libx265";
+            }
+            extension = "mp4";
+            if (ui->x264Preset->currentText() == "medium (Default)") {
+                preset = "medium";
+            } else {
+                preset = ui->x264Preset->currentText();
+            }
+            vCodec << "-c:v" << codec << "-preset" << preset << "-crf" << QString::number(ui->x264Var->value())
+                   << "-pix_fmt" << "yuv420p";
+        } else if (vCodecText == "VP8 (webm)") {
+            extension = "webm";
+            vCodec << "-c:v" << "libvpx" << "-deadline" << "realtime" << "-b:v"
+                   << QString("%1k").arg(ui->VP8Var->value())
+                   << "-pix_fmt" << "yuv420p";
+        } else if (vCodecText == "Xvid (avi)") {
+            extension = "avi";
+            vCodec << "-c:v" << "libxvid" << "-qscale:v" << QString::number(ui->XvidVar->value());
+        } else if (vCodecText == "H.264 NVENC (mp4)" or vCodecText == "HEVC NVENC (mp4)") {
+            QString codec;
+            if (vCodecText.contains("H.264")) {
+                codec = "h264_nvenc";
+            } else if (vCodecText.contains("HEVC")) {
+                codec = "hevc_nvenc";
+            }
+            extension = "mp4";
+            preset = ui->NVENCPresets->currentText().split(" ")[0];
+            vCodec << "-c:v" << codec << "-preset" << preset << "-b:v" << QString("%1k").arg(ui->NVENCVar->value())
+                   << "-pix_fmt" << "yuv420p";
         }
-        extension = "mp4";
-        if (ui->x264Preset->currentText() == "medium (Default)") {
-            preset = "medium";
-        } else {
-            preset = ui->x264Preset->currentText();
-        }
-        vCodec << "-c:v" << codec << "-preset" << preset << "-crf" << QString::number(ui->x264Var->value())
-               << "-pix_fmt" << "yuv420p";
-    } else if (vCodecText == "VP8 (webm)") {
-        extension = "webm";
-        vCodec << "-c:v" << "libvpx" << "-deadline" << "realtime" << "-b:v" << QString("%1k").arg(ui->VP8Var->value())
-               << "-pix_fmt" << "yuv420p";
-    } else if (vCodecText == "Xvid (avi)") {
-        extension = "avi";
-        vCodec << "-c:v" << "libxvid" << "-qscale:v" << QString::number(ui->XvidVar->value());
-    } else if (vCodecText == "H.264 NVENC (mp4)" or vCodecText == "HEVC NVENC (mp4)") {
-        QString codec;
-        if (vCodecText.contains("H.264")) {
-            codec = "h264_nvenc";
-        } else if (vCodecText.contains("HEVC")) {
-            codec = "hevc_nvenc";
-        }
-        extension = "mp4";
-        preset = ui->NVENCPresets->currentText().split(" ")[0];
-        vCodec << "-c:v" << codec << "-preset" << preset << "-b:v" << QString("%1k").arg(ui->NVENCVar->value())
-               << "-pix_fmt" << "yuv420p";
-    }
 
-    // Audio codecs
-    if (aCodecText == "default") {
-        aCodec << "-c:a" << "copy";
-    } else if (aCodecText == "AAC") {
-        aCodec << "-c:a" << "aac" << "-ac" << "2" << "-b:a" << QString("%1k").arg(ui->AACBitrateVar->value());
-    } else if (aCodecText == "MP3") {
-        aCodec << "-c:a" << "libmp3lame" << "-qscale:a" << QString::number(ui->mp3Value->value());
-    } else if (aCodecText == "Vorbis") {
-        aCodec << "-c:a" << "libvorbis" << "-qscale:a" << QString::number(ui->vorbisValue->value());
-    }
-    if (vCodec.contains("libvpx") and
-        (aCodec.contains("aac") or aCodec.contains("libmp3lame") or aCodec.contains("copy")))
-        QMessageBox::warning(this, "Error", "VP8 video codec can only use Vorbis audio codec.");
-    else {
-        QString filter;
-        if (extension == "mp4")
-            filter = "MP4 files (*.mp4)";
-        else if (extension == "avi")
-            filter = "AVI files (*.avi)";
-        else if (extension == "webm")
-            filter = "WebM files (*.webm)";
-        outPath = QFileDialog::getSaveFileName(this, "Save File", "", filter);
-        QStringList params = {"-hwaccel", "auto", "-y", "-loglevel", "debug", "-i", inPath};
-        params << vCodec << aCodec << outPath;
-        ffmpegSubprocess(params);
+        // Audio codecs
+        if (aCodecText == "default") {
+            aCodec << "-c:a" << "copy";
+        } else if (aCodecText == "AAC") {
+            aCodec << "-c:a" << "aac" << "-ac" << "2" << "-b:a" << QString("%1k").arg(ui->AACBitrateVar->value());
+        } else if (aCodecText == "MP3") {
+            aCodec << "-c:a" << "libmp3lame" << "-qscale:a" << QString::number(ui->mp3Value->value());
+        } else if (aCodecText == "Vorbis") {
+            aCodec << "-c:a" << "libvorbis" << "-qscale:a" << QString::number(ui->vorbisValue->value());
+        }
+        if (vCodec.contains("libvpx") and
+            (aCodec.contains("aac") or aCodec.contains("libmp3lame") or aCodec.contains("copy")))
+            QMessageBox::warning(this, "Error", "VP8 video codec can only use Vorbis audio codec.");
+        else {
+            QString filter;
+            if (extension == "mp4")
+                filter = "MP4 files (*.mp4)";
+            else if (extension == "avi")
+                filter = "AVI files (*.avi)";
+            else if (extension == "webm")
+                filter = "WebM files (*.webm)";
+            outPath = QFileDialog::getSaveFileName(this, "Save File", "", filter);
+            QStringList params = {"-hwaccel", "auto", "-y", "-loglevel", "debug", "-i", inPath};
+            params << vCodec << aCodec << outPath;
+            ffmpegSubprocess(params);
+        }
     }
 }
 
