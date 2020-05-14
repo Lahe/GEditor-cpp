@@ -59,12 +59,14 @@ void MainWindow::appendScaleParams(QStringList &params) {
 
 void MainWindow::changeCodec() {
     if (ui->importField->toPlainText().isEmpty()) {
-        QMessageBox::warning(this, "Error", "Import not specified!");
+        QMessageBox::warning(this, "Error!", "Import not specified!");
     } else {
         QString vCodecText = ui->vCodecDrop->currentText();
         QString aCodecText = ui->aCodecDrop->currentText();
         vCodec.clear();
         aCodec.clear();
+
+        //Video Codecs
         if (vCodecText == "default") {
             extension = QFileInfo(inPath).suffix();
             vCodec << "-c:v" << "copy";
@@ -116,7 +118,7 @@ void MainWindow::changeCodec() {
         }
         if (vCodec.contains("libvpx") and
             (aCodec.contains("aac") or aCodec.contains("libmp3lame") or aCodec.contains("copy")))
-            QMessageBox::warning(this, "Error", "VP8 video codec can only use Vorbis audio codec.");
+            QMessageBox::warning(this, "Error!", "VP8 video codec can only use Vorbis audio codec.");
         else {
             QString filter;
             if (extension == "mp4")
@@ -149,12 +151,12 @@ void MainWindow::importLut() {
 
 void MainWindow::applyFunction() {
     if (ui->importField->toPlainText().isEmpty()) {
-        QMessageBox::warning(this, "Error", "Import not specified!");
+        QMessageBox::warning(this, "Error!", "Import not specified!");
     } else {
         QString currentTab = ui->functionTabs->currentWidget()->objectName();
         if (currentTab == "lutTab") {
             if (lutPath.isEmpty()) {
-                QMessageBox::warning(this, "Error", "LUT not specified!");
+                QMessageBox::warning(this, "Error!", "LUT not specified!");
                 return;
             }
             ffmpegInputs.insert("lut", lutPath);
@@ -179,14 +181,14 @@ void MainWindow::applyFunction() {
 
 void MainWindow::previewOutput() {
     if (ui->importField->toPlainText().isEmpty()) {
-        QMessageBox::warning(this, "Error", "Import not specified!");
+        QMessageBox::warning(this, "Error!", "Import not specified!");
     } else {
         if (!ffmpegInputs.isEmpty()) {
             QString currentTab = ui->functionTabs->currentWidget()->objectName();
             QStringList params = {"-i", "-x", "1280", "-y", "720", inPath};
             if (currentTab == "lutTab") {
                 if (lutPath.isEmpty()) {
-                    QMessageBox::warning(this, "Error", "LUT not specified!");
+                    QMessageBox::warning(this, "Error!", "LUT not specified!");
                     return;
                 }
                 params << "-vf";
@@ -201,7 +203,7 @@ void MainWindow::previewOutput() {
                 appendScaleParams(params);
             }
             ffplaySubprocess(params);
-        } else QMessageBox::warning(this, "Error", "Click apply before previewing.");
+        } else QMessageBox::warning(this, "Error!", "Click apply before previewing.");
     }
 }
 
@@ -258,7 +260,7 @@ void MainWindow::saveToFile() {
         params << outPath;
         ffmpegSubprocess(params);
     } else {
-        QMessageBox::warning(this, "Error", "Click apply before exporting.");
+        QMessageBox::warning(this, "Error!", "Click apply before exporting.");
     }
 }
 
@@ -286,11 +288,11 @@ void MainWindow::tabSelected() {
 
 void MainWindow::uploadToStreamable() {
     if (ui->importField->toPlainText().isEmpty()) {
-        QMessageBox::warning(this, "Error", "Import not specified!");
+        QMessageBox::warning(this, "Error!", "Import not specified!");
     } else {
         QProcess process;
         QStringList params = {"https://api.streamable.com/upload", "-u",
-                              "hilefab320@mailcupp.com:hilefab320@mailcupp.com", "-F", QString("file=@%1").arg(inPath)};
+                              QString("%1:%2").arg(username, password), "-F", QString("file=@%1").arg(inPath)};
         process.start("curl", params);
         if (!process.waitForFinished())
             qDebug() << process.errorString();
