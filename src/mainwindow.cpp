@@ -6,6 +6,7 @@
 #include <QProcess>
 #include <QFontDatabase>
 #include "include/processhandler.h"
+#include <QDesktopServices>
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -20,7 +21,7 @@ MainWindow::~MainWindow() {
 
 static void ffmpegSubprocess(QStringList &paramList) {
     ProcessHandler handler;
-    handler.StartProcess("bin/ffmpeg.exe", paramList);
+    handler.startProcess("bin/ffmpeg.exe", paramList);
     qDebug() << "   _____ ____  __  __ _____  _      ______ _______ ______ _____  \n"
                 "  / ____/ __ \\|  \\/  |  __ \\| |    |  ____|__   __|  ____|  __ \\ \n"
                 " | |   | |  | | \\  / | |__) | |    | |__     | |  | |__  | |  | |\n"
@@ -31,7 +32,7 @@ static void ffmpegSubprocess(QStringList &paramList) {
 
 static void ffplaySubprocess(QStringList &paramList) {
     ProcessHandler handler;
-    handler.StartProcess("bin/ffplay.exe", paramList);
+    handler.startProcess("bin/ffplay.exe", paramList);
 }
 
 void MainWindow::appendLutParams(QStringList &params) {
@@ -288,5 +289,26 @@ void MainWindow::tabSelected() {
         ui->actionPreview->show();
         ui->actionExecute->show();
         ui->confirmationLabel->show();
+    }
+}
+
+
+void MainWindow::uploadToStreamable() {
+    if (ui->importField->toPlainText().isEmpty()) {
+        QMessageBox::warning(this, "Error", "Import not specified!");
+    } else {
+        QProcess process;
+        QStringList params = {"https://api.streamable.com/upload", "-u",
+                              "hilefab320@mailcupp.com:hilefab320@mailcupp.com", "-F", QString("file=@%1").arg(inPath)};
+        process.start("curl", params);
+        if (!process.waitForFinished())
+            qDebug() << process.errorString();
+        else {
+            QString shortCode = process.readAllStandardOutput();
+            shortCode = shortCode.split("\"")[3];
+            QString url = QString("https://streamable.com/%1").arg(shortCode);
+            qDebug().noquote() << "Video uploaded at url: " << url;
+            QDesktopServices::openUrl(QUrl(url));
+        }
     }
 }

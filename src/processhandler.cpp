@@ -1,6 +1,6 @@
 #include "include/processhandler.h"
 
-void ProcessHandler::StartProcess(QString process, QStringList& params) {
+void ProcessHandler::startProcess(QString process, QStringList &params) {
     qDebug() << process;
     qDebug() << params;
     myProcess = new QProcess(this);
@@ -13,5 +13,5 @@ void ProcessHandler::readStandardError() {
     QByteArray processOutput;
     processOutput = myProcess->readAllStandardError();
 
-    qDebug().noquote() << "Conversion successful" << QString(processOutput);
+    qDebug().noquote() << QString(processOutput);
 }

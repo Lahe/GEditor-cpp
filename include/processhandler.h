@@ -10,7 +10,7 @@ Q_OBJECT
 public:
     ProcessHandler() : QObject() {};
 
-    void StartProcess(QString process, QStringList& params);
+    void startProcess(QString process, QStringList &params);
 
 private slots:
 

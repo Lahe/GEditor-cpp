@@ -26,6 +26,7 @@ public slots:
     void changeCodec();
     void saveToFile();
     void tabSelected();
+    void uploadToStreamable();
 
 private:
     Ui::MainWindow *ui;

@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>461</width>
-    <height>543</height>
+    <height>573</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>461</width>
-    <height>543</height>
+    <height>573</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>461</width>
-    <height>543</height>
+    <height>573</height>
    </size>
   </property>
   <property name="font">
@@ -100,7 +100,6 @@ border:0px solid #262d38;
 
 QComboBox QAbstractItemView {
 	color: #4fe3c3;
-	min-width: 150px;
 }
 
 QTabWidget::pane {
@@ -117,13 +116,13 @@ font: 10pt &quot;Proxima Nova&quot;;
    <property name="minimumSize">
     <size>
      <width>461</width>
-     <height>543</height>
+     <height>573</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>461</width>
-     <height>543</height>
+     <height>573</height>
     </size>
    </property>
    <property name="font">
@@ -138,7 +137,7 @@ font: 10pt &quot;Proxima Nova&quot;;
       <x>10</x>
       <y>10</y>
       <width>441</width>
-      <height>51</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -206,12 +205,31 @@ font: 10pt &quot;Proxima Nova&quot;;
       <string>Import a file:</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="streamableBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>151</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Proxima Nova Rg</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Upload to Streamable</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="codecSettings">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>240</y>
+      <y>270</y>
       <width>441</width>
       <height>191</height>
      </rect>
@@ -236,7 +254,6 @@ font: 10pt &quot;Proxima Nova&quot;;
      </property>
      <property name="font">
       <font>
-       <family>Proxima Nova Rg</family>
        <pointsize>-1</pointsize>
       </font>
      </property>
@@ -542,7 +559,6 @@ font: 10pt &quot;Proxima Nova&quot;;
      </property>
      <property name="font">
       <font>
-       <family>Proxima Nova Rg</family>
        <pointsize>-1</pointsize>
       </font>
      </property>
@@ -690,7 +706,6 @@ font: 10pt &quot;Proxima Nova&quot;;
        </property>
        <property name="font">
         <font>
-         <family>Proxima Nova Rg</family>
          <pointsize>-1</pointsize>
         </font>
        </property>
@@ -1012,7 +1027,6 @@ font: 10pt &quot;Proxima Nova&quot;;
        </property>
        <property name="font">
         <font>
-         <family>Proxima Nova Rg</family>
          <pointsize>-1</pointsize>
         </font>
        </property>
@@ -1203,7 +1217,7 @@ font: 10pt &quot;Proxima Nova&quot;;
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>440</y>
+      <y>470</y>
       <width>441</width>
       <height>91</height>
      </rect>
@@ -1284,7 +1298,7 @@ font: 10pt &quot;Proxima Nova&quot;;
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>70</y>
+      <y>100</y>
       <width>441</width>
       <height>161</height>
      </rect>
@@ -1412,7 +1426,6 @@ font: 10pt &quot;Proxima Nova&quot;;
        </property>
        <property name="font">
         <font>
-         <family>Proxima Nova Rg</family>
          <pointsize>-1</pointsize>
         </font>
        </property>
@@ -2018,12 +2031,12 @@ font: 10pt &quot;Proxima Nova&quot;;
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>169</x>
-     <y>336</y>
+     <x>170</x>
+     <y>372</y>
     </hint>
     <hint type="destinationlabel">
-     <x>122</x>
-     <y>335</y>
+     <x>123</x>
+     <y>370</y>
     </hint>
    </hints>
   </connection>
@@ -2034,12 +2047,12 @@ font: 10pt &quot;Proxima Nova&quot;;
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>148</x>
-     <y>332</y>
+     <x>149</x>
+     <y>370</y>
     </hint>
     <hint type="destinationlabel">
-     <x>75</x>
-     <y>332</y>
+     <x>76</x>
+     <y>368</y>
     </hint>
    </hints>
   </connection>
@@ -2066,8 +2079,8 @@ font: 10pt &quot;Proxima Nova&quot;;
    <slot>importLut()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>371</x>
-     <y>148</y>
+     <x>372</x>
+     <y>187</y>
     </hint>
     <hint type="destinationlabel">
      <x>211</x>
@@ -2083,7 +2096,7 @@ font: 10pt &quot;Proxima Nova&quot;;
    <hints>
     <hint type="sourcelabel">
      <x>82</x>
-     <y>208</y>
+     <y>238</y>
     </hint>
     <hint type="destinationlabel">
      <x>49</x>
@@ -2099,7 +2112,7 @@ font: 10pt &quot;Proxima Nova&quot;;
    <hints>
     <hint type="sourcelabel">
      <x>137</x>
-     <y>212</y>
+     <y>242</y>
     </hint>
     <hint type="destinationlabel">
      <x>116</x>
@@ -2114,8 +2127,8 @@ font: 10pt &quot;Proxima Nova&quot;;
    <slot>convertToMp3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>81</x>
-     <y>135</y>
+     <x>82</x>
+     <y>190</y>
     </hint>
     <hint type="destinationlabel">
      <x>41</x>
@@ -2146,8 +2159,8 @@ font: 10pt &quot;Proxima Nova&quot;;
    <slot>stabilizeVideo()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>348</x>
-     <y>151</y>
+     <x>349</x>
+     <y>204</y>
     </hint>
     <hint type="destinationlabel">
      <x>268</x>
@@ -2163,7 +2176,7 @@ font: 10pt &quot;Proxima Nova&quot;;
    <hints>
     <hint type="sourcelabel">
      <x>411</x>
-     <y>469</y>
+     <y>499</y>
     </hint>
     <hint type="destinationlabel">
      <x>385</x>
@@ -2179,7 +2192,7 @@ font: 10pt &quot;Proxima Nova&quot;;
    <hints>
     <hint type="sourcelabel">
      <x>95</x>
-     <y>411</y>
+     <y>441</y>
     </hint>
     <hint type="destinationlabel">
      <x>178</x>
@@ -2195,7 +2208,7 @@ font: 10pt &quot;Proxima Nova&quot;;
    <hints>
     <hint type="sourcelabel">
      <x>227</x>
-     <y>203</y>
+     <y>233</y>
     </hint>
     <hint type="destinationlabel">
      <x>309</x>
@@ -2211,11 +2224,27 @@ font: 10pt &quot;Proxima Nova&quot;;
    <hints>
     <hint type="sourcelabel">
      <x>73</x>
-     <y>105</y>
+     <y>135</y>
     </hint>
     <hint type="destinationlabel">
      <x>145</x>
      <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>streamableBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>uploadToStreamable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>42</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>37</x>
+     <y>94</y>
     </hint>
    </hints>
   </connection>
