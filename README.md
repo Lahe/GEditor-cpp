@@ -3,7 +3,6 @@
 
 Requirements
 ------------
-  - Windows 10
   - CMake 3.15+
   - Visual Studio 2019
   - Qt 5.14.2 Prebuilt components for MSVC 2017
