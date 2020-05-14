@@ -129,30 +129,24 @@ void MainWindow::changeCodec() {
 }
 
 void MainWindow::importFile() {
-    qDebug() << "Import File clicked";
     inPath = QFileDialog::getOpenFileName(this, "Import File", "",
                                           "All supported formats (*.mp4 *.webm *.avi *.mp3 *.ts *.mkv);;"
                                           "MP4 files (*.mp4);;"
                                           "WebM files (*.webm);;"
                                           "AVI files (*.avi)");
     ui->importField->setText(inPath);
-    qDebug() << inPath;
 }
 
 void MainWindow::importLut() {
-    qDebug() << "Import LUT clicked";
     lutPath = QFileDialog::getOpenFileName(this, "Import LUT", "", "LUT Files (*.cube)");
     ui->lutPath->setText(lutPath);
-    qDebug() << lutPath;
 }
 
 void MainWindow::applyFunction() {
-    qDebug() << "Apply function clicked";
     if (ui->importField->toPlainText().isEmpty()) {
         QMessageBox::warning(this, "Error", "Import not specified!");
     } else {
         QString currentTab = ui->functionTabs->currentWidget()->objectName();
-        qDebug() << currentTab;
         if (currentTab == "lutTab") {
             if (lutPath.isEmpty()) {
                 QMessageBox::warning(this, "Error", "LUT not specified!");
@@ -179,14 +173,12 @@ void MainWindow::applyFunction() {
 }
 
 void MainWindow::previewOutput() {
-    qDebug() << "Preview output clicked";
     if (ui->importField->toPlainText().isEmpty()) {
         QMessageBox::warning(this, "Error", "Import not specified!");
     } else {
         if (!ffmpegInputs.isEmpty()) {
             QString currentTab = ui->functionTabs->currentWidget()->objectName();
             QStringList params = {"-i", "-x", "1280", "-y", "720", inPath};
-            qDebug() << currentTab;
             if (currentTab == "lutTab") {
                 if (lutPath.isEmpty()) {
                     QMessageBox::warning(this, "Error", "LUT not specified!");
@@ -210,7 +202,6 @@ void MainWindow::previewOutput() {
 
 
 void MainWindow::convertToMp3() {
-    qDebug() << "Convert to mp3 clicked";
     outPath = QFileDialog::getSaveFileName(this, "Save File", "", "MP3 Files (*.mp3)");
     QStringList params = {"-hwaccel", "auto", "-y", "-loglevel", "debug", "-i", inPath,
                           outPath, "-b:a", "192K", "-vn"};
@@ -218,7 +209,6 @@ void MainWindow::convertToMp3() {
 }
 
 void MainWindow::saveAsGif() {
-    qDebug() << "Save as GIF clicked";
     outPath = QFileDialog::getSaveFileName(this, "Save File", "", "Gif files (*.gif)");
     QStringList params = {"-hwaccel", "auto", "-y", "-loglevel", "debug", "-i", inPath,
                           "-filter_complex",
@@ -228,7 +218,6 @@ void MainWindow::saveAsGif() {
 }
 
 void MainWindow::stabilizeVideo() {
-    qDebug() << "Stabilize video clicked";
     outPath = QFileDialog::getSaveFileName(this, "Save File", "", "MP4 Files (*.mp4)");
     QStringList detectParams = {"-hwaccel", "auto", "-y", "-loglevel", "debug", "-i", inPath,
                                 "-vf",
@@ -241,14 +230,12 @@ void MainWindow::stabilizeVideo() {
                                    "vidstabtransform=input=external/transform_vectors.trf:zoom=0:smoothing=10,unsharp=5:5:0.8:3:3:0.4",
                                    "-vcodec", "libx264", "-acodec", "-copy", outPath};
     ffmpegSubprocess(transformParams);
-    std::remove("external/transform_vectors.trf");
+    QFile::remove("external/transform_vectors.trf");
 }
 
 void MainWindow::saveToFile() {
-    qDebug() << "Export clicked";
     if (!ffmpegInputs.isEmpty()) {
         outPath = QFileDialog::getSaveFileName(this, "Save File", "", "MP4 Files (*.mp4)");
-        qDebug() << ffmpegInputs;
         QStringList params = {"-hwaccel", "auto", "-y", "-loglevel", "debug", "-i", inPath};
         if (ffmpegInputs.contains("lut") or ffmpegInputs.contains("speed") or
             ffmpegInputs.contains("scaleW")) {
@@ -271,7 +258,6 @@ void MainWindow::saveToFile() {
 }
 
 void MainWindow::executeCustom() {
-    qDebug() << "Execute custom clicked";
     QStringList params = ui->customText->toPlainText().split(" ");
     ffmpegSubprocess(params);
 }

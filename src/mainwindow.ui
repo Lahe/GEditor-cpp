@@ -485,7 +485,7 @@ font: 10pt &quot;Proxima Nova&quot;;
         <rect>
          <x>10</x>
          <y>40</y>
-         <width>121</width>
+         <width>141</width>
          <height>16</height>
         </rect>
        </property>
@@ -986,7 +986,7 @@ font: 10pt &quot;Proxima Nova&quot;;
       <widget class="QLabel" name="XvidVarLabel">
        <property name="geometry">
         <rect>
-         <x>90</x>
+         <x>95</x>
          <y>10</y>
          <width>16</width>
          <height>16</height>
@@ -1399,7 +1399,7 @@ font: 10pt &quot;Proxima Nova&quot;;
       <widget class="QLabel" name="speedText">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>15</x>
          <y>27</y>
          <width>41</width>
          <height>16</height>
@@ -1632,7 +1632,7 @@ font: 10pt &quot;Proxima Nova&quot;;
       <widget class="QLabel" name="extractEndText">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>7</x>
          <y>45</y>
          <width>61</width>
          <height>16</height>
@@ -1651,7 +1651,7 @@ font: 10pt &quot;Proxima Nova&quot;;
       <widget class="QLabel" name="extractStartText">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>7</x>
          <y>15</y>
          <width>61</width>
          <height>16</height>
@@ -1852,7 +1852,7 @@ font: 10pt &quot;Proxima Nova&quot;;
         <rect>
          <x>170</x>
          <y>14</y>
-         <width>141</width>
+         <width>171</width>
          <height>16</height>
         </rect>
        </property>
