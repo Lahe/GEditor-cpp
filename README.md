@@ -3,6 +3,7 @@
 
 Requirements
 ------------
+  - Windows 10
   - CMake 3.15+
   - Visual Studio 2019
   - Qt 5.14.2 Prebuilt components for MSVC 2017 *(Replace Qt path in CMakeLists.txt)*
@@ -12,9 +13,9 @@ Requirements
 Build
 ------------
 ```
+Set up MSVC toolchain environment in Windows cmd as shown below or use the "Developer Command Prompt for VS 2019"
 cd ${PATH_TO_VISUAL_STUDIO}\VC\Auxiliary\Build
 vcvars64.bat
-(Or use the Developer Command Prompt for VS 2019)
 
 ---Navigate to a folder you want to build in---
 
