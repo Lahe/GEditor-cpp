@@ -38,6 +38,8 @@ private:
     QStringList aCodec;
     QString extension;
     QString preset;
+    QString username = ""; // streamable credentials
+    QString password = "";
 
 private:
     void appendLutParams(QStringList &params);
