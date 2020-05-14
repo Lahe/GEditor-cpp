@@ -17,7 +17,7 @@ Build
 cd ${PATH_TO_VISUAL_STUDIO}\VC\Auxiliary\Build
 vcvars64.bat
 ```
-##### Navigate to a folder you want to build in using your command prompt
+##### Navigate to a folder you want to build in using the command prompt
 ```
 git clone https://github.com/SpreeHD/GEditor-cpp.git GEditor-cpp
 cd GEditor-cpp
