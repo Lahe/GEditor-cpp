@@ -3,7 +3,7 @@ project(GEditor)
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_PREFIX_PATH "C:\\Qt\\5.14.2\\msvc2017_64")
+INCLUDE(config.local OPTIONAL)
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui)
 
 set(CMAKE_AUTOMOC ON)
