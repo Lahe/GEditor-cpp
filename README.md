@@ -10,9 +10,10 @@ Requirements
   - Ninja v1.10.0
 
 Build
+------------
+
 ##### 1. Rename config.local.example to config.local and replace Qt path with your own Qt installation path.
 
-------------
 ##### 2. Set up MSVC toolchain environment in Windows cmd as shown below or use the "Developer Command Prompt for VS 2019"
 ```
 cd ${PATH_TO_VISUAL_STUDIO}\VC\Auxiliary\Build
