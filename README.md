@@ -12,13 +12,13 @@ Requirements
 
 Build
 ------------
+##### Set up MSVC toolchain environment in Windows cmd as shown below or use the "Developer Command Prompt for VS 2019"
 ```
-Set up MSVC toolchain environment in Windows cmd as shown below or use the "Developer Command Prompt for VS 2019"
 cd ${PATH_TO_VISUAL_STUDIO}\VC\Auxiliary\Build
 vcvars64.bat
-
----Navigate to a folder you want to build in---
-
+```
+##### Navigate to a folder you want to build in using your command prompt
+```
 git clone https://github.com/SpreeHD/GEditor-cpp.git GEditor-cpp
 cd GEditor-cpp
 mkdir build
