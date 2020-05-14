@@ -6,18 +6,20 @@ Requirements
   - Windows 10
   - CMake 3.15+
   - Visual Studio 2019
-  - Qt 5.14.2 Prebuilt components for MSVC 2017 *(Replace Qt path in CMakeLists.txt)*
+  - Qt 5.14.2 Prebuilt components for MSVC 2017
   - Clang 10.0.0
   - Ninja v1.10.0
 
 Build
+##### 1. Rename config.local.example to config.local and replace Qt path with your own Qt installation path.
+
 ------------
-##### Set up MSVC toolchain environment in Windows cmd as shown below or use the "Developer Command Prompt for VS 2019"
+##### 2. Set up MSVC toolchain environment in Windows cmd as shown below or use the "Developer Command Prompt for VS 2019"
 ```
 cd ${PATH_TO_VISUAL_STUDIO}\VC\Auxiliary\Build
 vcvars64.bat
 ```
-##### Navigate to a folder you want to build in using the command prompt
+##### 3. Navigate to a folder you want to build in using the command prompt
 ```
 git clone https://github.com/SpreeHD/GEditor-cpp.git GEditor-cpp
 cd GEditor-cpp
