@@ -21,7 +21,7 @@ MainWindow::~MainWindow() {
 
 static void ffmpegSubprocess(QStringList &paramList) {
     ProcessHandler handler;
-    handler.startProcess("bin/ffmpeg.exe", paramList);
+    handler.startProcess("./bin/ffmpeg.exe", paramList);
     qDebug() << "   _____ ____  __  __ _____  _      ______ _______ ______ _____  \n"
                 "  / ____/ __ \\|  \\/  |  __ \\| |    |  ____|__   __|  ____|  __ \\ \n"
                 " | |   | |  | | \\  / | |__) | |    | |__     | |  | |__  | |  | |\n"
@@ -32,7 +32,7 @@ static void ffmpegSubprocess(QStringList &paramList) {
 
 static void ffplaySubprocess(QStringList &paramList) {
     ProcessHandler handler;
-    handler.startProcess("bin/ffplay.exe", paramList);
+    handler.startProcess("./bin/ffplay.exe", paramList);
 }
 
 void MainWindow::appendLutParams(QStringList &params) {
