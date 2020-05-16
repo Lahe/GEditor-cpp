@@ -4,7 +4,7 @@
 Requirements
 ------------
   - CMake 3.15+
-  - Visual Studio 2019
+  - Visual Studio C++ Build Tools
   - Qt 5.14.2 Prebuilt components for MSVC 2017
   - Clang 10.0.0 *(should also work with other compilers)*
   - Ninja v1.10.0
